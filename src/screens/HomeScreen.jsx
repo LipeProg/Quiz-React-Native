@@ -1,18 +1,27 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
-const HomeScreen = ({ navigation }) => {
-    navigation = useNavigation();
+const HomeScreen = () => {
+    const navigation = useNavigation();
     return (
-        <View>
+        <View style={styles.Tela}>
 
-            <Text>Quiz Conhecimento Gerais</Text>
+            <Text style={styles.H1}>
+                Quiz Conhecimento Gerais
+            </Text>
+                
+           <View style={styles.Botao}>
 
-            <Button
+             <Button
                 title='Comece o Quiz'
                 onPress={() => {navigation.navigate("Conhecimentos Gerais")}}
-                />
+                color='#778899'
+            />
+
+           </View>
+           
+
         </View>
     )
 }
@@ -20,5 +29,36 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
+
+    Tela:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#E0FFFF'
+    },
+
+    H1:{
+        fontSize: 24,
+        color: 'black',
+        fontWeight: 'bold',
+        marginBottom: 10
+    },
+
+    Negrito:{
+        fontWeight: 'bold'
+    },
+
+    Botao:{
+
+        borderRadius: 8,
+        backgroundColor: '#778899',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        marginBottom: 50
+    },
+    TextoBotao:{
+        fontSize: 15,
+        color: 'white'
+    }
 
 })

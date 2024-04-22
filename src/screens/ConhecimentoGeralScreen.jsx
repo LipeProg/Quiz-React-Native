@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native';
+import CustonBotao from '../Components/CustonBotao';
 
 const ConhecimentoGeralScreen = () => {
   const navigation = useNavigation()
@@ -128,14 +129,14 @@ const ConhecimentoGeralScreen = () => {
   return (
     <View>
       <Text>{perguntas[indexPerguntas].pergunta}</Text>
-      {perguntas[indexPerguntas].opcoes.map((respostas, index)=> (
-        <Button
-        key={index}
-        title={respostas}
-        onPress={() => proximaPergunta(respostas)}
-        />
-
-      ))}
+      {perguntas[indexPerguntas].opcoes.map((resposta, index)=> (
+      
+      <CustonBotao
+      onPress={() => proximaPergunta(resposta)}
+      title={resposta}
+      key={index}
+      />
+))}
       <Text>Pontuação: {pontos}</Text>
     </View>
   );
@@ -143,4 +144,7 @@ const ConhecimentoGeralScreen = () => {
 
 export default ConhecimentoGeralScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+  
+});
