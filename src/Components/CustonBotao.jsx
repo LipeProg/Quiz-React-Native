@@ -19,11 +19,14 @@ export default CustonBotao;
 
 const styles = StyleSheet.create({
     butao: {
-        backgroundColor: '#98FB98',
+        backgroundColor: '#e5b100',
         paddingVertical: 12,
         paddingHorizontal: 20,
-        borderRadius: 5,
+        borderRadius: 8,
         alignItems: 'center',
+        width: '50%',
+        marginBottom: 10,
+        alignSelf: 'center'
     },
     
     buttonText: {

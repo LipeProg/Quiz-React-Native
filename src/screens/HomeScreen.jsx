@@ -1,28 +1,39 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
+import {LinearGradient } from 'expo-linear-gradient';
+import CustonBotao from '../Components/CustonBotao'
 
 const HomeScreen = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.Tela}>
 
-            <Text style={styles.H1}>
-                Quiz Conhecimento Gerais
-            </Text>
-                
-           <View style={styles.Botao}>
+        <LinearGradient 
+         colors={['#7F00FF', '#E100FF']} 
+         style={styles.linear}
+         >
+            <View style={styles.Tela}>
 
-             <Button
-                title='Comece o Quiz'
+                <Text style={styles.H1}>
+                    Quiz Conhecimento Gerais
+                </Text>
+
+
+                <CustonBotao 
                 onPress={() => {navigation.navigate("Conhecimentos Gerais")}}
-                color='#778899'
-            />
+                title={'Comece o Quiz'}>
+                </CustonBotao>
+                
+                
+            </View>
 
-           </View>
-           
 
-        </View>
+        </LinearGradient>
+             
+
+       
+
+
     )
 }
 
@@ -30,11 +41,14 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
 
+    linear:{
+        flex: 1
+    },
+
     Tela:{
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#E0FFFF'
+        alignItems: 'center'
     },
 
     H1:{

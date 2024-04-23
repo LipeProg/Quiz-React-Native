@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CustonBotao from '../Components/CustonBotao';
+import { LinearGradient } from "expo-linear-gradient";
 
 const ConhecimentoGeralScreen = () => {
   const navigation = useNavigation()
@@ -127,24 +128,48 @@ const ConhecimentoGeralScreen = () => {
   };
 
   return (
-    <View>
-      <Text>{perguntas[indexPerguntas].pergunta}</Text>
-      {perguntas[indexPerguntas].opcoes.map((resposta, index)=> (
-      
-      <CustonBotao
-      onPress={() => proximaPergunta(resposta)}
-      title={resposta}
-      key={index}
-      />
-))}
-      <Text>Pontuação: {pontos}</Text>
-    </View>
+      <LinearGradient        
+      colors={['#7F00FF', '#E100FF']} 
+      style={styles.linear}
+      >
+
+        <View style={styles.tela}>
+          <Text style={styles.H1}>{perguntas[indexPerguntas].pergunta}</Text>
+          {perguntas[indexPerguntas].opcoes.map((resposta, index)=> (
+          
+          <CustonBotao
+          onPress={() => proximaPergunta(resposta)}
+          title={resposta}
+          key={index}
+          />
+          ))}
+          
+          <Text style={styles.H1}>Pontuação: {pontos}</Text>
+        </View>
+    </LinearGradient>
+
   );
 };
 
 export default ConhecimentoGeralScreen;
 
 const styles = StyleSheet.create({
+  linear:{
+    flex: 1,
+
+  },
+
+  tela:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  H1:{
+    fontSize: 24,
+    color: 'black',
+    fontWeight: 'bold',
+    marginBottom: 10
+}
 
   
 });
